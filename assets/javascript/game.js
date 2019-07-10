@@ -17,17 +17,17 @@ function startgame ()
 {
 // four random gems // 
 
-gem1 = [Math.floor (Math.random () * 12 + 1)];
-console.log(gem1)
+gem1 = Math.floor(Math.random () * 12 + 1);
+console.log(gem1);
 
-gem2 = [Math.floor (Math.random () * 12 + 1)];
-console.log(gem2)
+gem2 = Math.floor(Math.random () * 12 + 1);
+console.log(gem2);
 
-gem3 = [Math.floor (Math.random () * 12 + 1)];
-console.log(gem3)
+gem3 = Math.floor(Math.random () * 12 + 1);
+console.log(gem3);
 
-gem4 = [Math.floor (Math.random () * 12 + 1)];
-console.log(gem4)
+gem4 = Math.floor(Math.random () * 12 + 1);
+console.log(gem4);
 
     // random gem goal// 
 
@@ -41,36 +41,38 @@ $("#computertotal").text(objectivenumber);
 // rules //
 
 function gamebody(){
-    debugger;
+    if ($(this).attr("id")=="gem1"){
+        usernumber += gem1; 
+        $("#usertotal").text(usernumber); 
+    }
+    else if ($(this).attr("id")=="gem2"){
+        usernumber += gem2; 
+        $("#usertotal").text(usernumber); 
+    }
+    else if ($(this).attr("id")=="gem3"){
+        usernumber += gem3; 
+        $("#usertotal").text(usernumber); 
+    }
+    else if ($(this).attr("id")=="gem4"){
+        usernumber += gem4; 
+        $("#usertotal").text(usernumber); 
+    }
+    
+    // debugger;
     if (usernumber == objectivenumber)
     {
-    wins++;
+     wins++;
     console.log(usernumber)
     $("#wins").text(wins);
+    startgame();
     }
     else if (usernumber > objectivenumber)
     {
         failures ++; 
         $("#failures").text(failures);
-    }
-    if ($(this).attr("id")=="gem1"){
-        usernumber += gem1; 
-        $("#usertotal").text(usernumber); 
+        startgame();
     }
 
-    if ($(this).attr("id")=="gem2"){
-        usernumber += gem2; 
-        $("#usertotal").text(usernumber); 
-    }
-
-    if ($(this).attr("id")=="gem3"){
-        usernumber += gem3; 
-        $("#usertotal").text(usernumber); 
-    }
-    if ($(this).attr("id")=="gem4"){
-        usernumber += gem4; 
-        $("#usertotal").text(usernumber); 
-    }
 }
 
 $(".gems").on("click", gamebody);
