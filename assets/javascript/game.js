@@ -3,8 +3,8 @@
 
 var wins= 0;
 var failures= 0;
-var objectivenumber ="";
-var usernumber= 0;
+var objectivenumber =0;
+var usernumber = 0;
 var gem1 =0;
 var gem2 =0;
 var gem3 =0;
@@ -32,35 +32,60 @@ console.log(gem4)
     // random gem goal// 
 
 usernumber = 0;
+$("#usertotal").text(usernumber);
 objectivenumber = [Math.floor (Math.random () * (120 - 19)+ 19)];
 console.log(objectivenumber);
 $("#computertotal").text(objectivenumber);
 }
 
 // rules //
-startgame();
 
-$("#usertotal").text(usernumber);
+function gamebody(){
+    debugger;
+    if (usernumber == objectivenumber)
+    {
+    wins++;
+    console.log(usernumber)
+    $("#wins").text(wins);
+    }
+    else if (usernumber > objectivenumber)
+    {
+        failures ++; 
+        $("#failures").text(failures);
+    }
+    if ($(this).attr("id")=="gem1"){
+        usernumber += gem1; 
+        $("#usertotal").text(usernumber); 
+    }
 
-if (usernumber == objectivenumber)
-{
-wins++;
-console.log(usernumber)
-$("#wins").text(wins);
+    if ($(this).attr("id")=="gem2"){
+        usernumber += gem2; 
+        $("#usertotal").text(usernumber); 
+    }
+
+    if ($(this).attr("id")=="gem3"){
+        usernumber += gem3; 
+        $("#usertotal").text(usernumber); 
+    }
+    if ($(this).attr("id")=="gem4"){
+        usernumber += gem4; 
+        $("#usertotal").text(usernumber); 
+    }
 }
 
-else if (usernumber > objectivenumber)
+$(".gems").on("click", gamebody);
 
-{
 
-    failures ++; 
-    $("#failures").text(failures);
-}
+
+
+
+//acutal game//
+
+
 
 
 startgame();
 
-console.log(failures)
 
 
 
