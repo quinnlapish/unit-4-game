@@ -64,6 +64,7 @@ function gamebody(){
      wins++;
     console.log(usernumber)
     $("#wins").text(wins);
+    alert ("You Win!");
     startgame();
     }
     else if (usernumber > objectivenumber)
