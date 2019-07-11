@@ -15,9 +15,31 @@ background-color: aquamarine;
 img
 
 {
-
+  width: 20%;
+  height: 20%; 
 align-self: center;
-margin-inline: block;
+
+
+
+}
+
+.objective
+
+{
+
+    text-align: center;
+    font-style: bold;
+    
+
+
+}
+
+.imgcenter
+
+{
+
+display: flex;
+justify-content: space-between;
 
 
 }
